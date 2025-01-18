@@ -1,0 +1,12 @@
+#memo-details-div{
+    height: 75px;
+}
+#settings-menu-div{
+    bottom: 10px;
+}
+#time-tracker-title{
+    font-size: 40px;
+}
+.cursor-pointer{
+    cursor: pointer !important;
+}

@@ -1,0 +1,85 @@
+{
+    "name": "sparkle-tracker",
+    "version": "1.0.0",
+    "description": "It's Time Tracker APP.",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron .",
+        "rebuild": "electron-rebuild -f -w iohook"
+    },
+    "keywords": [
+        "Electron",
+        "quick",
+        "start",
+        "tutorial",
+        "time tracker"
+    ],
+    "build": {
+        "win": {
+            "icon": "img/icon.ico"
+        },
+        "linux": {
+            "icon": "img/logo.png"
+        },
+        "dmg": {
+            "icon": "img/logo.icns"
+        },
+        "directories": {
+            "buildResources": "img"
+        }
+    },
+    "email": "contact@sparkleinfotech.com",
+    "url": "http://sparkleinfotech.com/",
+    "license": "CC0-1.0",
+    "dependencies": {
+        "axios": "^0.21.1",
+        "cron": "^1.8.2",
+        "dotenv": "^16.4.5",
+        "easytimer": "^1.1.1",
+        "easytimer.js": "^4.2.0",
+        "electron-abi": "^1.1.0",
+        "electron-squirrel-startup": "^1.0.0",
+        "electron-store": "^5.2.0",
+        "electron-updater": "^4.3.9",
+        "electron-winstaller": "^4.0.0",
+        "iohook": "^0.9.3",
+        "jquery": "^3.5.1",
+        "jquery-validation": "^1.19.2",
+        "log-to-file": "^2.0.2",
+        "moment": "^2.30.1",
+        "node-abi": "^2.18.0",
+        "node-cron": "^2.0.3",
+        "request": "^2.88.2",
+        "screenshot-desktop": "^1.12.1",
+        "update-electron-app": "^2.0.1",
+        "url": "^0.11.0",
+        "util": "^0.12.3"
+    },
+    "devDependencies": {
+        "@electron-forge/cli": "^6.0.0-beta.52",
+        "@electron-forge/maker-deb": "^6.0.0-beta.50",
+        "@electron-forge/maker-rpm": "^6.0.0-beta.50",
+        "@electron-forge/maker-squirrel": "^6.0.0-beta.50",
+        "@electron-forge/maker-zip": "^6.0.0-beta.50",
+        "devtron": "^1.4.0",
+        "electron": "^12.0.12",
+        "electron-packager": "^15.5.1",
+        "electron-rebuild": "^1.11.0",
+        "electron-wix-msi": "^2.2.0"
+    },
+    "iohook": {
+        "targets": [
+            "node-88",
+            "electron-87"
+        ],
+        "platforms": [
+            "win32",
+            "darwin",
+            "linux"
+        ],
+        "arches": [
+            "x64",
+            "ia32"
+        ]
+    }
+}

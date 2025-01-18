@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <link href="./css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/custom.css">
+    <link rel="stylesheet" type="text/css" href="./css/global-loader.css">
+    <link rel="stylesheet" type="text/css" href="./css/toaster.css">
+    <link rel="stylesheet" href="./css/offline-theme-chrome-indicator.css" />
+    <script src="./js/offline.min.js"></script>
+    <script src="./js/jquery.min.js"></script>
+    <title>Time Tracker</title>
+</head>
+
+<body>
+
+    <div class="container p-1">
+
+        <a href="javascript:void(0);" data-href="http://localhost/laravel/time-tracker/"
+            class="d-flex btn justify-content-center align-items-end" id="time-tracker-div">
+            <p class="m-0 fw-bold text-primary " id="time-tracker-title">Time
+                <p class="m-1 fs-1 fw-bold">Tracker</p>
+            </p>
+        </a>
+
+        <div class="loader-content">
+            <div class="overlay align-items-center d-none justify-content-center overlay-content z-3" id="global-loader">
+                <div class="overlay-content z-3">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            </div>
+            <div class="my-1 px-2 py-3">
+                <span class="text-muted">Current Session</span>
+                <div class="count-text">
+                    <div class="count-num">
+                        <h3 class="total_current_session"><span class="total_hrs">0</span>H&nbsp;<span
+                                class="total_min">00</span>M
+                        </h3>
+                    </div>
+                    <div class="count-btn">
+                        <div class="onoffswitch">
+                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="timeSwitch"
+                                tabindex="0">
+                            <label class="onoffswitch-label" for="timeSwitch">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="count-text-1">
+                    <div class="cnt-text">
+                        <h1 class="tracker_day_name"></h1>
+                        <p class="todayTotalTime">0:00</p>
+                    </div>
+                    <div class="cnt-text-1">
+                        <h1>This week (UTC)</h1>
+                        <p><span class="weekTotalTime">0:00</span></p>
+                    </div>
+                </div>
+                <hr class="m-0">
+                <div class="d-flex justify-content-start flex-column" id="memo-details-div">
+                    <p class="m-0 fw-bold">Working on: </p>
+                    <p id="trackerMemo" name="tracker_memo_p" class="m-0"></p>
+                </div>
+                <hr class="m-0">
+                <div class="count-text-3">
+                    <h4>Latest screen capture</h4>
+                    <span id="last_sctime"></span>
+                    <div class="screen-shoat cursor-pointer">
+                        <img src="./img/no-image.png" id="imageid" class="sc_tracker">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="position-fixed rounded w-75 z-3" id="toast-main-div">
+            <div id="toast-div" class="toast align-items-center border-0  bg-success-subtle text-success" role="alert"
+                aria-live="assertive" aria-atomic="true">
+                <div class="d-flex">
+                    <div class="toast-body" id="toast-body">
+                        Hello, world! This is a toast message.
+                    </div>
+                    <button type="button" class="btn-close btn-close-black me-2 m-auto" data-bs-dismiss="toast"
+                        aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="position-fixed w-100" id="settings-menu-div">
+            <hr class="m-0">
+            <div class="dropup">
+                <div class="dropdown-toggle cursor-pointer d-flex justify-content-start align-items-center"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class="mx-1 fs-2 fw-medium">
+                        <span id="user-name" class="text-uppercase"></span>
+                    </div>
+                </div>
+                <ul class="dropdown-menu">
+                    <!-- <li><a class="dropdown-item" href="javascript:void(0);" id="tracker_feedback">Feedback</a></li> -->
+                    <li><a class="dropdown-item" href="javascript:void(0);" id="tracker_logout">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+
+        <div id="notification" class="hidden">
+            <p id="message"></p>
+            <button id="close-button" onClick="closeNotification()">
+                Close
+            </button>
+            <button id="restart-button" onClick="restartApp()" class="hidden">
+                Restart
+            </button>
+        </div>
+
+    </div>
+
+
+    <script src="./js/dataStore.js"></script>
+    <script src="./renderer.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/toster.js"></script>
+    <script src="./js/global-loader.js"></script>
+    <script src="./js/timer.js"></script>
+    <script src="./js/login.js"></script>
+    <script src="./js/get-data.js"></script>
+
+    <script>
+        $(function () {
+            getTimeTrackerData()
+        })
+    </script>
+    <script>
+        const {
+            ipcRenderer
+        } = require('electron');
+
+        const notification = document.getElementById('notification');
+        const message = document.getElementById('message');
+        const restartButton = document.getElementById('restart-button');
+
+        ipcRenderer.send('app_version');
+        ipcRenderer.on('app_version', (event, arg) => {
+            ipcRenderer.removeAllListeners('app_version');
+
+        });
+
+        ipcRenderer.on('update_available', () => {
+            ipcRenderer.removeAllListeners('update_available');
+            message.innerText = 'A new update is available. Downloading now...';
+            notification.classList.remove('hidden');
+        });
+
+        ipcRenderer.on('update_downloaded', () => {
+            ipcRenderer.removeAllListeners('update_downloaded');
+            message.innerText = 'Update Downloaded. It will be installed on restart. Restart now?';
+            restartButton.classList.remove('hidden');
+            notification.classList.remove('hidden');
+        });
+
+        function closeNotification() {
+            notification.classList.add('hidden');
+        }
+
+        function restartApp() {
+            ipcRenderer.send('restart_app');
+        }
+    </script>
+
+
+</body>
+
+</html>

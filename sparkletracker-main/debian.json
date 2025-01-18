@@ -1,0 +1,16 @@
+{
+    "name": "Sparkle Tracker",
+    "productName": "Sparkle Tracker",
+    "description": "It is Time Tracker APP.",
+    "dest": "release-builds/",
+    "executableName": "Sparkle Tracker",
+    "icon": "img/logo.png",
+    "version": "1.0.0",
+    "desktopTemplate": "desktop.ejs",
+    "categories": [
+        "Utility"
+    ],
+    "lintianOverrides": [
+        "changelog-file-missing-in-native-package"
+    ]
+}

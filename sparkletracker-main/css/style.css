@@ -1,0 +1,335 @@
+button.login-btn {
+    width: 100%;
+    border: none;
+    background-color: #37a000;
+    color: #fff;
+    border-radius: 3px;
+    padding: 8px 0px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+button:focus {
+    outline: 0 !important;
+}
+
+.tracker-login .t-input-box:last-child {
+    margin-bottom: 15px;
+}
+
+.check-box {
+    margin-top: -9px;
+    margin-bottom: 14px;
+}
+
+.check-box input {
+    height: 11px;
+}
+
+.check-box span {
+    font-size: 13px;
+    margin-left: 2px;
+    padding: 2px 0px;
+}
+
+.loader {
+    max-width: 8%;
+    margin-left: 6px;
+    display: none;
+}
+
+.active_timer {
+    color: #398732 !important;
+}
+
+
+.count-num h3 {
+    color: #969696;
+    font-size: 20px;
+}
+
+.count-num h3 {
+    color: #969696;
+    font-size: 34px;
+    letter-spacing: 1px;
+}
+
+.onoffswitch {
+    position: relative;
+    width: 70px;
+    float: right;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.onoffswitch-checkbox {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.onoffswitch-label {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.onoffswitch-inner {
+    display: block;
+    width: 200%;
+    margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+
+.onoffswitch-inner:before,
+.onoffswitch-inner:after {
+    display: block;
+    float: left;
+    width: 50%;
+    height: 36px;
+    padding: 0;
+    line-height: 36px;
+    font-size: 14px;
+    color: white;
+    font-family: Trebuchet, Arial, sans-serif;
+    font-weight: bold;
+    box-sizing: border-box;
+}
+
+.onoffswitch-inner:before {
+    content: "ON";
+    padding-left: 10px;
+    background-color: #008329;
+    color: #FFFFFF;
+    font-size: 12px;
+}
+
+.onoffswitch-inner:after {
+    content: "OFF";
+    padding-right: 10px;
+    background-color: #4a4a4a;
+    color: #fff;
+    text-align: right;
+    font-size: 12px;
+}
+
+.onoffswitch-switch {
+    display: block;
+    height: 24px;
+    width: 24px;
+    background: #FFFFFF;
+    position: absolute;
+    top: 6px;
+    bottom: 0;
+    right: 42px;
+    border-radius: 50%;
+    transition: all 0.3s ease-in 0s;
+}
+
+.onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+
+.onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-switch {
+    right: 4px;
+}
+
+.count-text {
+    display: flex;
+}
+
+.count-num {
+    width: 50%;
+}
+
+.count-btn {
+    float: right;
+    width: 50%;
+}
+
+.count-text-1 {
+    display: flex;
+}
+
+.cnt-text {
+    width: 50%;
+}
+
+.cnt-text-1 {
+    width: 50%;
+    text-align: right;
+}
+
+.cnt-text h1 {
+    font-size: 14px;
+    display: inline-block;
+    margin-bottom: 0;
+}
+
+.cnt-text-1 h1 {
+    font-size: 14px;
+    color: #008329;
+    margin-bottom: 0;
+    line-height: 20px;
+}
+
+.cnt-text p {
+    line-height: 20px;
+    font-weight: 700;
+}
+
+.cnt-text-1 p {
+    font-weight: 700;
+    line-height: 21px;
+}
+
+.cnt-text span {
+    width: 24px;
+    height: 24px;
+    margin-top: 5px;
+    display: inline-block;
+    position: absolute;
+    text-align: center;
+    color: #fff;
+    border-radius: 50%;
+    background-color: #14bff4;
+    margin-left: 4px;
+}
+
+.cnt-text-1 h1 {
+    font-size: 14px;
+    color: #008329;
+    margin-bottom: 0;
+    line-height: 20px;
+}
+
+.count-text-3 h4 {
+    font-size: 15px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.count-text-3 span {
+    font-size: 15px;
+    font-weight: 600;
+    display: inline-block;
+    float: right;
+}
+
+.count-text-3 {
+    margin-top: 10px;
+}
+
+.count-text-4 {
+    display: none;
+    margin: 10px 0px;
+}
+
+.screen-shoat img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+.screen-shoat{
+    width: 100%;
+    display: flex;
+    height: 200px;
+    justify-content: center;
+    align-items: center;
+}
+
+#notification {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 200px;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.hidden {
+    display: none;
+}
+.tracker-drop {
+    position: absolute;
+}
+
+.count-text-5 .ct-text a {
+    width: 100%;
+    display: flex;
+}
+
+a:hover {
+    text-decoration: none !important;
+}
+
+.count-text-5 {
+    position: relative;
+}
+
+.tracker-drop {
+    padding: 10px 15px;
+    box-shadow: 0px 0px 7px -1px #000000a6;
+    width: 50%;
+    left: 1px;
+    background-color: #fff;
+    bottom: 45px;
+    display: none;
+    z-index: 9999;
+}
+
+.tracker-drop ul {
+    padding: 0px;
+    margin: 0px;
+}
+
+.tracker-drop ul li a {
+    color: #7d767a;
+    font-size: 15px;
+}
+
+.tracker-drop ul li a:hover {
+    color: #319501;
+}
+
+.tracker-drop ul li {
+    list-style: none;
+    margin-bottom: 4px;
+}
+
+.container {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.tracker_memo_text:focus {
+    outline-offset: none;
+    outline: none;
+}
+
+.tracker_memo_text {
+    width: 100%;
+    resize: none;
+    border: none;
+    overflow: hidden;
+    line-height: 18px;
+    font-size: 15px;
+    padding-right: 20px;
+}
+
+
+.edit_save {
+    padding-top: 0px;
+    padding-right: 0px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 20px;
+}
+
+.tracker_memo_p {
+    position: relative;
+    display: inline-block;
+}
